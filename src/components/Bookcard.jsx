@@ -41,7 +41,7 @@ const Bookcard = ({ book }) => {
 
           {/* Action Button */}
           <Link 
-            href={`/book/${id}`}
+            href={`/all-books/${id}`}
             className="w-full text-center bg-[#EE9B9B] text-white py-2.5 rounded-lg text-sm font-bold hover:bg-[#B36281] transition-colors duration-300 shadow-sm"
           >
             View Details
