@@ -2,7 +2,7 @@
 import { Check } from "@gravity-ui/icons";
 import { authClient } from "../../lib/auth-client";
 
-export default function SignUpPage() {
+export default function SignInPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
     
@@ -13,15 +13,16 @@ export default function SignUpPage() {
     console.log("Form Data:", forminfo);
 
     // Better Auth API Call
-    const { data, error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signIn.email({
       email: forminfo.email,
       password: forminfo.password,
-      name: forminfo.name,
+      rememberMe: true,
       callbackURL: "/"
+      
     });
 
     if (error) {
-      console.error("Sign up failed:", error);
+      console.error("Sign In failed:", error);
       
     } else {
       console.log("Success:", data);
@@ -33,23 +34,11 @@ export default function SignUpPage() {
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="card w-125 bg-white border border-[#FFC09F]/40 shadow-xl p-10">
         
-        <h1 className="text-center text-3xl font-bold text-[#B36281] mb-8">Sign Up</h1>
+        <h1 className="text-center text-3xl font-bold text-[#B36281] mb-8">Sign In</h1>
 
         <form className="flex flex-col gap-5" onSubmit={onSubmit}>
           
-          {/* Name Field */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text font-medium text-gray-600">Name</span>
-            </label>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Enter your name" 
-              className="input input-bordered w-full focus:outline-[#EE9B9B] border-gray-200" 
-              required 
-            />
-          </div>
+         
 
           {/* Email Field */}
           <div className="form-control w-full">
