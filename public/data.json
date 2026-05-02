@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Silent Forest",
+    "author": "Arif Rahman",
+    "description": "A mysterious tale of a forest where no sound exists and secrets unfold slowly.",
+    "category": "Story",
+    "available_quantity": 12,
+    "image_url": "https://source.unsplash.com/featured/?book,forest"
+  },
+  {
+    "id": 2,
+    "title": "JavaScript Mastery",
+    "author": "Nusrat Jahan",
+    "description": "A complete guide to modern JavaScript, from basics to advanced concepts.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://source.unsplash.com/featured/?programming,book"
+  },
+  {
+    "id": 3,
+    "title": "The Cosmos Explained",
+    "author": "Dr. Hasan Mahmud",
+    "description": "An introduction to the universe, galaxies, and the science behind space.",
+    "category": "Science",
+    "available_quantity": 10,
+    "image_url": "https://source.unsplash.com/featured/?space,book"
+  },
+  {
+    "id": 4,
+    "title": "Lost in Time",
+    "author": "Sadia Karim",
+    "description": "A gripping story of time travel and the consequences of changing history.",
+    "category": "Story",
+    "available_quantity": 5,
+    "image_url": "https://source.unsplash.com/featured/?time,clock,book"
+  },
+  {
+    "id": 5,
+    "title": "React for Professionals",
+    "author": "Tanvir Ahmed",
+    "description": "Deep dive into React.js with real-world applications and best practices.",
+    "category": "Tech",
+    "available_quantity": 15,
+    "image_url": "https://source.unsplash.com/featured/?reactjs,code"
+  },
+  {
+    "id": 6,
+    "title": "Quantum Mechanics Basics",
+    "author": "Dr. Farhana Islam",
+    "description": "Simplified explanation of quantum physics principles and theories.",
+    "category": "Science",
+    "available_quantity": 7,
+    "image_url": "https://source.unsplash.com/featured/?quantum,physics"
+  },
+  {
+    "id": 7,
+    "title": "Whispers of the Night",
+    "author": "Imran Hossain",
+    "description": "A haunting story about secrets revealed under the cover of darkness.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://source.unsplash.com/featured/?night,book"
+  },
+  {
+    "id": 8,
+    "title": "Node.js in Action",
+    "author": "Rifat Chowdhury",
+    "description": "Learn backend development using Node.js, Express, and MongoDB.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://source.unsplash.com/featured/?nodejs,backend"
+  },
+  {
+    "id": 9,
+    "title": "The Human Brain",
+    "author": "Dr. Sharmeen Akter",
+    "description": "Explore how the brain works, from neurons to complex behaviors.",
+    "category": "Science",
+    "available_quantity": 11,
+    "image_url": "https://source.unsplash.com/featured/?brain,science"
+  },
+  {
+    "id": 10,
+    "title": "Echoes of Love",
+    "author": "Mithila Roy",
+    "description": "A romantic story that spans across years and memories.",
+    "category": "Story",
+    "available_quantity": 14,
+    "image_url": "https://source.unsplash.com/featured/?romance,book"
+  },
+  {
+    "id": 11,
+    "title": "AI Revolution",
+    "author": "Sabbir Khan",
+    "description": "Understanding artificial intelligence and its impact on the future.",
+    "category": "Tech",
+    "available_quantity": 13,
+    "image_url": "https://source.unsplash.com/featured/?artificial-intelligence,technology"
+  },
+  {
+    "id": 12,
+    "title": "Climate Change Today",
+    "author": "Dr. Rezaul Karim",
+    "description": "An in-depth look at climate change, its causes, and global impact.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://source.unsplash.com/featured/?climate,earth"
+  }
+]
