@@ -1,17 +1,16 @@
-import Bookcard from "./Bookcard";
+import Bookcard from "@/components/Bookcard";
 
-const TopBooks = async () => {
+const AllBooks = async () => {
     const res = await fetch("https://ph-assignment8.vercel.app/data.json");
             const data = await res.json();
             console.log(data);
-     const topbooks = data.slice(0,4)
-     console.log(topbooks);
+     
+     console.log(data);
     return (
         <div>
-            <h1 className ="text-2xl font-bold text-[#EE9B9B] my-10 text-center">Top Books</h1>
-
+            <h1 className ="text-2xl font-bold text-[#EE9B9B] my-10 text-center">All Books</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {topbooks.map((book) => (
+                {data.map((book) => (
                     <Bookcard key={book.id} book={book} >
                        
                     </Bookcard>
@@ -21,4 +20,4 @@ const TopBooks = async () => {
     );
 };
 
-export default TopBooks;
+export default AllBooks;
