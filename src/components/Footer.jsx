@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaEnvelope, FaPhone } from 'react-i
 
 const Footer = () => {
   return (
-    <footer className="bg-[#B36281] text-[#FFECC0] pt-12 pb-6 mt-auto">
+    <footer className="bg-[#B36281] text-[#FFECC0] pt-12 pb-6  mt-10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         
         {/* Contact Us Section */}
