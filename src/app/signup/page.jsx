@@ -1,108 +1,41 @@
 "use client";
-import { Check } from "@gravity-ui/icons";
-import { authClient } from "../../lib/auth-client";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SignUpPage() {
+  const router = useRouter();
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    
-    
     const formData = new FormData(e.target);
-    const forminfo = Object.fromEntries(formData.entries());
-    
-    console.log("Form Data:", forminfo);
+    const { name, email, password } = Object.fromEntries(formData);
 
-    // Better Auth API Call
     const { data, error } = await authClient.signUp.email({
-      email: forminfo.email,
-      password: forminfo.password,
-      name: forminfo.name,
-      callbackURL: "/"
+      email,
+      password,
+      name,
+      
     });
 
     if (error) {
-      console.error("Sign up failed:", error);
-      
+      alert(error.message || "Registration failed!"); // Show error
     } else {
-      console.log("Success:", data);
-      
+      router.push("/signIn"); // সফল হলে লগইন পেজে নেভিগেট
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="card w-125 bg-white border border-[#FFC09F]/40 shadow-xl p-10">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <h1 className="text-3xl font-bold text-[#B36281] mb-6">User Registration</h1>
+      <form onSubmit={onSubmit} className="w-full max-w-md flex flex-col gap-4 border p-8 rounded-xl shadow-lg">
+        <input name="name" placeholder="Name" className="input input-bordered" required />
+        <input name="email" type="email" placeholder="Email" className="input input-bordered" required />
         
-        <h1 className="text-center text-3xl font-bold text-[#B36281] mb-8">Sign Up</h1>
-
-        <form className="flex flex-col gap-5" onSubmit={onSubmit}>
-          
-          {/* Name Field */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text font-medium text-gray-600">Name</span>
-            </label>
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Enter your name" 
-              className="input input-bordered w-full focus:outline-[#EE9B9B] border-gray-200" 
-              required 
-            />
-          </div>
-
-          {/* Email Field */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text font-medium text-gray-600">Email</span>
-            </label>
-            <input 
-              type="email" 
-              name="email"
-              placeholder="john@example.com" 
-              className="input input-bordered w-full focus:outline-[#EE9B9B] border-gray-200" 
-              required 
-            />
-          </div>
-
-          {/* Password Field */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text font-medium text-gray-600">Password</span>
-            </label>
-            <input 
-              type="password" 
-              name="password"
-              placeholder="Enter your password" 
-              className="input input-bordered w-full focus:outline-[#EE9B9B] border-gray-200" 
-              required 
-            />
-            <label className="label">
-              <span className="label-text-alt text-gray-400">
-                At least 8 characters with 1 uppercase and 1 number
-              </span>
-            </label>
-          </div>
-
-          {/* Buttons Section */}
-          <div className="flex gap-3 mt-4">
-            <button 
-              type="submit" 
-              className="btn flex-1 bg-[#EE9B9B] hover:bg-[#B36281] text-white border-none font-bold"
-            >
-              <Check className="w-5 h-5" />
-              Submit
-            </button>
-
-            <button 
-              type="reset" 
-              className="btn flex-1 bg-[#FFECC0] hover:bg-[#FFC09F] text-[#B36281] border-[#FFC09F] font-bold"
-            >
-              Reset
-            </button>
-          </div>
-        </form>
-      </div>
+        <input name="password" type="password" placeholder="Password" className="input input-bordered" required />
+        <button type="submit" className="btn bg-[#EE9B9B] text-white">Register</button>
+        <p className="text-center">Already have an account? <Link href="/signIn" className="text-blue-500 underline">Login</Link></p>
+      </form>
     </div>
   );
 }
