@@ -1,21 +1,56 @@
+"use client";
+import { useState, useEffect } from "react";
 import Bookcard from "@/components/Bookcard";
 
-const AllBooks = async () => {
-    const res = await fetch("https://ph-assignment8.vercel.app/data.json");
-            const data = await res.json();
-            console.log(data);
-     
-     console.log(data);
+const AllBooks = () => {
+    const [books, setBooks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            try {
+                const res = await fetch("https://ph-assignment8.vercel.app/data.json");
+                const data = await res.json();
+                // নিশ্চিত করুন ডাটা একটি অ্যারে
+                setBooks(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error("Fetch error:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
+
+    // সুরক্ষিত ফিল্টার
+    const filteredBooks = books.filter((book) => {
+        // bookName না থাকলে এটি empty string ধরবে, ফলে toLowerCase() এরর দেবে না
+        const title = book?.title ? String(book.title) : "";
+        return title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
     return (
-        <div>
-            <h1 className ="text-2xl font-bold text-[#EE9B9B] my-10 text-center">All Books</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {data.map((book) => (
-                    <Bookcard key={book.id} book={book} >
-                       
-                    </Bookcard>
+        <div className="max-w-7xl mx-auto px-4 py-10">
+            <h1 className="text-3xl font-bold text-[#B36281] mb-10 text-center">All Books</h1>
+
+            {/* Search Input */}
+            <div className="flex justify-center mb-10">
+                <input
+                    type="text"
+                    placeholder="Search by title..."
+                    className="input input-bordered w-full max-w-md border-[#FFC09F] focus:outline-[#EE9B9B]"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
+
+            {/* Grid View */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {filteredBooks.map((book) => (
+                    <Bookcard key={book.bookId || book.id} book={book} />
                 ))}
             </div>
+            
+            {filteredBooks.length === 0 && (
+                <p className="text-center text-gray-400 mt-10">No books found.</p>
+            )}
         </div>
     );
 };

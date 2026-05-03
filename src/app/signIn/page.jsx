@@ -10,7 +10,7 @@ export default function SignInPage() {
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/", // গুগল লগইনে সরাসরি হোম পেজে যাবে
+      callbackURL: "/", 
     });
   };
 
@@ -22,9 +22,9 @@ export default function SignInPage() {
     const { data, error } = await authClient.signIn.email({ email, password });
 
     if (error) {
-      alert(error.message || "Invalid credentials!"); // Show error
+      alert(error.message || "Invalid credentials!"); 
     } else {
-      router.push("/"); // সফল হলে হোম পেজে নেভিগেট
+      router.push("/"); 
     }
   };
 

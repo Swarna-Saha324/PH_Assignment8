@@ -19,9 +19,9 @@ export default function SignUpPage() {
     });
 
     if (error) {
-      alert(error.message || "Registration failed!"); // Show error
+      alert(error.message || "Registration failed!"); 
     } else {
-      router.push("/signIn"); // সফল হলে লগইন পেজে নেভিগেট
+      router.push("/signIn"); 
     }
   };
 

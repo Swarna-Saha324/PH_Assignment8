@@ -9,10 +9,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   
-  // ১. সেশন ডাটা এবং লোডিং স্টেট চেক করা
+ 
   const { data: session, isPending } = authClient.useSession(); 
 
-  // ২. লগআউট ফাংশন (লগআউট শেষে সাইন-ইন পেজে নেভিগেট করবে)
   const handleLogout = async () => {
     await signOut({
       fetchOptions: {
@@ -66,7 +65,7 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            /* যদি ইউজার লগআউট থাকে: লগইন বাটন */
+          
             <Link 
               href="/signIn" 
               className="bg-[#B36281] text-white px-6 py-2 rounded-xl font-bold hover:bg-[#EE9B9B] transition-all"

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Bookcard = ({ book }) => {
-  // JSON data theke destructuring
+  
   const { id, title, author, category, available_quantity, image_url } = book;
 
   return (
