@@ -9,13 +9,13 @@ export default function SignUpPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const { name, email, password } = Object.fromEntries(formData);
+    const { name, email, password, photoUrl } = Object.fromEntries(formData);
 
     const { data, error } = await authClient.signUp.email({
       email,
       password,
       name,
-      
+      photoUrl
     });
 
     if (error) {
@@ -31,7 +31,7 @@ export default function SignUpPage() {
       <form onSubmit={onSubmit} className="w-full max-w-md flex flex-col gap-4 border p-8 rounded-xl shadow-lg">
         <input name="name" placeholder="Name" className="input input-bordered" required />
         <input name="email" type="email" placeholder="Email" className="input input-bordered" required />
-        
+        <input name="photoUrl" type="url" placeholder="Photo-URL (link)" className="input input-bordered" required />
         <input name="password" type="password" placeholder="Password" className="input input-bordered" required />
         <button type="submit" className="btn bg-[#EE9B9B] text-white">Register</button>
         <p className="text-center">Already have an account? <Link href="/signIn" className="text-blue-500 underline">Login</Link></p>
