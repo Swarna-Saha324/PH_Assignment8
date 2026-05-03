@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Banner from "@/components/Banner";
 import Marquee from "@/components/Marquee";
 import TopBooks from "@/components/TopBooks";
