@@ -11,7 +11,7 @@ const AllBooks = () => {
             try {
                 const res = await fetch("https://ph-assignment8.vercel.app/data.json");
                 const data = await res.json();
-                // নিশ্চিত করুন ডাটা একটি অ্যারে
+               
                 setBooks(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error("Fetch error:", error);
@@ -20,9 +20,9 @@ const AllBooks = () => {
         fetchBooks();
     }, []);
 
-    // সুরক্ষিত ফিল্টার
+    
     const filteredBooks = books.filter((book) => {
-        // bookName না থাকলে এটি empty string ধরবে, ফলে toLowerCase() এরর দেবে না
+        
         const title = book?.title ? String(book.title) : "";
         return title.toLowerCase().includes(searchTerm.toLowerCase());
     });
