@@ -18,7 +18,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <FaPhone className="text-[#FFC09F]" /> 
-              <span>+880 1234 567890</span>
+              <span>+0123456789</span>
             </li>
           </ul>
         </div>
