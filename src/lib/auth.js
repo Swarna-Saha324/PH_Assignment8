@@ -20,11 +20,5 @@ export const auth = betterAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET , 
         }, 
     },
-    advanced: {
-        crossOrigin: true, // যদি আপনার ফ্রন্টএন্ড এবং ব্যাকএন্ড আলাদা হয়
-    },
-    trustedOrigins: [
-        "https://ph-assignment8.vercel.app",
-        "https://ph-assignment8-fqtvfup3g-swarna-saha324s-projects.vercel.app" // আপনার এই প্রিভিউ লিঙ্কটি এখানে দিন
-    ]
+    
 });
