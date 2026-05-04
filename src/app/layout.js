@@ -26,10 +26,15 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      {/* overflow-x-hidden add kora hoyeche jate horizontal scroll na ashe */}
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <Navbar />
-        <main className="max-w-7xl mx-auto px-6 flex-1">{children}</main>
-       
+        
+        {/* 'max-w-7xl' ekhane bad dewa hoyeche jate Banner full width hote pare */}
+        <main className="w-full flex-1">
+          {children}
+        </main>
+        
         <Footer />
       </body>
     </html>

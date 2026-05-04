@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 
+// Swiper CSS imports
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -13,7 +14,7 @@ const Banner = () => {
     {
       title: "Find Your Next Read",
       desc: "Discover a world of stories and inspiration waiting for you.",
-      bg: "/Banner.png",
+      bg: "/Banner.png", // Tomar folder theke image path thik koro
     },
     {
       title: "Expand Your Knowledge",
@@ -23,76 +24,91 @@ const Banner = () => {
   ];
 
   return (
-    <div className="container h-[320px] sm:h-[420px] md:h-[550px] overflow-hidden rounded-xl">
-      <Swiper
-        modules={[Pagination, Autoplay, EffectFade]}
-        effect="fade"
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
-        loop
-        className="h-full w-full"
-      >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className="relative w-full h-full bg-cover bg-center flex items-center"
-              style={{ backgroundImage: `url(${slide.bg})` }}
-            >
-
-              <div className="absolute inset-0 bg-black/50" />
-
-              <div className="relative z-10 w-full px-4 sm:px-6 md:px-12 flex flex-col justify-center sm:items-start items-center text-center sm:text-left">
-                
-                <h1 className="text-xl sm:text-3xl md:text-5xl font-bold text-white leading-snug md:leading-tight mb-3 sm:mb-4">
-                  {slide.title}
-                </h1>
-
-                <p className="text-xs sm:text-base md:text-lg text-[#FFECC0] mb-5 max-w-[90%] sm:max-w-xl">
-                  {slide.desc}
-                </p>
-
-                <Link
-                  href="/all-books"
-                  className="inline-block bg-[#EE9B9B] hover:bg-[#B36281] text-white px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm md:text-lg font-semibold transition-all shadow-lg active:scale-95"
+    <section className="relative w-full max-w-full overflow-hidden pt-4 px-4 sm:px-6 lg:px-8">
+      {/* Container to center and limit width */}
+      <div className="max-w-7xl mx-auto w-full">
+        
+        {/* Banner Main Wrapper */}
+        <div className="relative w-full h-[300px] sm:h-[450px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl bg-gray-200">
+          
+          <Swiper
+            modules={[Pagination, Autoplay, EffectFade]}
+            effect="fade"
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            loop={true}
+            slidesPerView={1}
+            observer={true}
+            observeParents={true}
+            className="w-full h-full"
+          >
+            {slides.map((slide, index) => (
+              <SwiperSlide key={index} className="w-full h-full">
+                <div
+                  className="relative w-full h-full bg-cover bg-center flex items-center justify-center sm:justify-start"
+                  style={{ backgroundImage: `url(${slide.bg})` }}
                 >
-                  Browse Now
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                  {/* Overlay for better text readability */}
+                  <div className="absolute inset-0 bg-black/45" />
 
+                  {/* Content - Fully Responsive */}
+                  <div className="relative z-10 w-full px-6 sm:px-12 md:px-24 flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-xl">
+                      {slide.title}
+                    </h1>
 
+                    <p className="text-sm sm:text-lg text-[#FFECC0] mb-8 max-w-[280px] sm:max-w-md lg:max-w-2xl drop-shadow-md">
+                      {slide.desc}
+                    </p>
+
+                    <Link
+                      href="/all-books"
+                      className="inline-block bg-[#EE9B9B] hover:bg-[#B36281] text-white px-8 py-3 sm:px-10 sm:py-4 rounded-full text-sm sm:text-lg font-bold transition-all active:scale-95 shadow-xl"
+                    >
+                      Browse Now
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* Extreme Override for 1200px and Scroll Issue */}
       <style jsx global>{`
+        /* Screenshot-er daine shora bondho korar jonno */
+        html, body {
+          max-width: 100% !important;
+          overflow-x: hidden !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
         .swiper {
-          height: 100%;
+          width: 100% !important;
+          max-width: 100% !important;
         }
 
         .swiper-slide {
-          height: 100%;
+          width: 100% !important;
+          max-width: 100% !important;
+          display: flex !important;
         }
 
-        .swiper-pagination {
-          bottom: 10px !important;
-        }
-
+        /* Pagination style */
         .swiper-pagination-bullet {
-          width: 7px;
-          height: 7px;
-          background: white;
+          background: white !important;
           opacity: 0.5;
-          transition: all 0.3s ease;
         }
-
         .swiper-pagination-bullet-active {
-          width: 20px;
-          border-radius: 999px;
-          background: #ee9b9b !important;
+          background: #EE9B9B !important;
+          width: 24px !important;
+          border-radius: 12px !important;
           opacity: 1;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

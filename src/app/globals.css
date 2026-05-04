@@ -1,3 +1,32 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
+
+/* globals.css */
+:root {
+  --max-width: 100vw;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important; /* 100vw er bodole 100% use koro */
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  position: relative;
+}
+
+/* Swiper ba DaisyUI container jeno baire na jay */
+.container {
+  max-width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Force everything to stay inside */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
