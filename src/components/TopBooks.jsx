@@ -1,7 +1,7 @@
 import Bookcard from "./Bookcard";
 
 const TopBooks = async () => {
-    let topbooks = []; // ডিফল্ট ভ্যালু সেট করে রাখা ভালো যাতে ম্যাপ ফাংশন এরর না দেয়
+    let topbooks = []; 
 
     try {
        
